@@ -35,7 +35,7 @@ const typeController = (e) => {
 
   // if it is not a valid character like Control/Alt then skip displaying anything
   if (!validLetters.includes(newLetter)) {
-    return errorCount = errorCount + 1;
+    return; 
   }
 
   userText += newLetter;
@@ -46,6 +46,7 @@ const typeController = (e) => {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++
   }
 
   // check if given question text is equal to user typed text
@@ -95,7 +96,7 @@ const gameOver = () => {
 };
 
 const closeModal = () => {
-  modalBackground.classList.toggle("hidden");
+  modalBackground.classList.toggle("hidden");  
   resultModal.classList.toggle("hidden");
 };
 
